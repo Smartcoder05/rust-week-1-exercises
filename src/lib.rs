@@ -206,6 +206,7 @@ pub fn extract_tx_version(raw_tx_hex: &str) -> Result<u32, String> {
     if decoded_tx_hex.len() < 5 {
         return Err("Transaction data too short".to_string());
     }
+
     let version_bytes: [u8; 4] = decoded_tx_hex[0..4]
         .try_into()
         .map_err(|_| "Transaction data too short")?;
